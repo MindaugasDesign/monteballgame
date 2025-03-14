@@ -1,0 +1,358 @@
+* {   font-family: "Oxanium", sans-serif; }
+
+body { 
+	background-color: #151616;
+	color: #fff;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+}
+
+header { }
+
+.input { 	border: 1px dashed rgba(255,196,42,1);
+	padding: 0.2em; }
+
+[contenteditable=true] {
+	outline: none!important;
+}
+
+#top-line {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	height: 15vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	z-index: 10000;
+	background-color: #151616;
+}
+
+#logo {
+	max-width: 70%;
+	padding: 1em; 
+	cursor: pointer; 
+	transition: all 200ms;
+}
+
+#menu {
+	padding: 2rem;
+	margin-left: auto;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+#menu,.menu-bottom,.menu-top {
+transition: all 500ms ease;
+width: 42px;
+}
+
+.menu-bottom,.menu-top {
+background-color: rgb(255 196 42);
+content: "";
+display: block;
+height: 5px;
+position: absolute;
+}
+
+.menu-top { transform: translate(-20px,-6px) }
+
+.menu-bottom { transform: translate(-20px, 6px) }
+
+.open .menu-top { transform: rotate(-45deg) translate(-20px, -20px); }
+
+.open .menu-bottom { transform: rotate(45deg) translate(-20px, 20px); }
+
+.closed { display: none; }
+
+nav {
+	position: fixed;
+	top:0;
+	left: 0;
+	user-select: none;
+	-webkite-user-select:  none;
+	background-color: #151616;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	letter-spacing: 3px;
+}
+
+.link {
+font-weight: bold;
+font-size: 1.4em;
+padding: 0.6em;
+margin: 0.2em;
+border: 5px solid #151616;
+cursor: pointer;
+text-decoration: none;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.link:hover {
+border: 5px dashed rgb(255 196 42);
+}
+
+.link.active {
+border: 5px dashed rgb(255 196 42);
+}
+
+.pav { 
+	padding: 0.6rem; 
+	font-size: 1.5em; 
+	text-transform: uppercase; 
+	letter-spacing: 0.5vw;
+	font-weight: 300;
+}
+
+.opcijos { 
+	border: 3px solid #151616; 
+	width: 100%;
+	max-width: 600px;
+	margin: 1em auto;
+	padding: 2em 1em;
+	background-color: #272e29; /*#333;*/
+	text-align: center;
+} 
+
+.opcija { 
+	transition: all 500ms ease-in-out;
+	padding: 0.6em; 
+	margin: 0.6em 0.3em;
+	cursor:pointer;
+	font-size: 1.3em;
+	letter-spacing: 1px;
+	border: 2px dashed rgb(255,196,42);
+	border-radius: 1em;
+	font-weight: 500;
+}
+
+.mazas-tekstas {
+	font-size: 0.6em;
+}
+
+.pasirinkta { 
+	background-color: rgb(255 196 42);
+	color: #000;
+	border-radius: 2em;
+}
+	main { }
+	.page-content { width: 90%; max-width: 800px; margin: auto; }
+	screen { min-height: 100vh; overflow: hidden; text-align: center;}
+	screen { z-index: 1000; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: #000; }
+
+	h1, h2 { font-weight: 300; letter-spacing: 0.5vmin; padding-top: 1em; font-family: sans-serif; text-transform: uppercase; color: rgb(255,196,42); margin-bottom: 1em; margin-top: 2em;}
+	h1 { font-size: 2em;}
+	h2 { font-size: 1.5em;}
+	article {  }
+	p { padding: 1em; letter-spacing: 0.5vmin; line-height: 1.4em;}
+	button { font-weight: bold; padding: 1em; border: none; font-size: 1em; text-transform: uppercase; letter-spacing: 1vmin; margin: 1em; cursor: pointer; background-color: #ddd; border-radius: 0.4em; transition: all 500ms; }
+
+	label { text-transform: uppercase; letter-spacing: 1vmin; font-weight: bold; }
+	input, text { font-size: 1.5em; font-weight: bold; padding: 0.2em; border: 4px solid rgb(255 196 42); outline: none; margin-bottom: 0.2rem; text-align: center; width: 90%; border-radius: 2rem; letter-spacing: 1px; font-weight: 500; background-color: #fff;}
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	a {color: rgb(255,196,42); outline: none; text-decoration: none; font-style: italic; }
+	a:visited { color: rgb(255,196,42); }
+
+	footer { padding: 2em; background-color: rgba(63,63,63,0.5); width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between;align-items: end; overflow: hidden;}
+
+	.footer-section { padding: 2em; }
+	.title { padding: 1em 0 0.5em 0; font-weight: bold; font-size: 1.2em; color: rgb(255 196 42) }
+	.footer-item { padding-bottom: 0.5em; color: #fff!important; }
+	.footer-link { cursor: pointer;  }
+
+	.t15 { font-size: 1.5em; }
+	.t20 { font-size: 2em; }
+	.m { margin-left: 0.5em; transform: scale(0.7)}
+
+	.sutraukta { height: 0; padding: 0!important; }
+	.ikona { display: flex; padding: 0.1em; align-items: center; }
+
+	/*	MONTEBOLAS*/
+	.slider { 
+		height: 50vh;
+		max-width: 100vw;
+		position: relative;
+	}
+
+	.slide {
+		height: 50vh;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		opacity: 0;
+		transition: all 333ms;
+		position: absolute;
+	}
+
+	.active {
+		opacity: 1;
+	}
+	/*	REZERVACIJA*/
+	#apmoketi { 
+		background: #fff;
+		color: #000; 
+		width: 90%; 
+		padding: 1rem; 
+		font-size: 1.5em;
+		transition: all 500ms ease;
+		border-radius: 2rem; 
+		border: 10px solid rgb(255 196 42);
+	}
+
+	#apmoketi:hover { 
+		box-shadow: 0px -5px 10px rgba(255, 196, 42, 0.5); 
+		transform: scale(1.05) translateY(3px);
+	}
+
+	#apmoketi.paspaustas {
+		box-shadow: 0px -5px 10px rgba(255, 196, 42, 0.5); 
+		transform: scale(1.05) translateY(3px);
+		background: rgb(255 196 42);
+	}
+
+
+	#menesio-tekstas {
+/*		padding: 0.5em; 
+		font-size: 1.5em; 
+		font-weight: bold; 
+		text-transform: uppercase; 
+		letter-spacing: 5px;
+		line-height: 1.5em;*/
+	}
+
+	#logo-round { fill: #fff; }
+
+	.pasirinkta #logo-round { fill: #000; }
+
+	.plus, .minus, .number {
+		font-size: 1.5em;
+		padding: 0.5em;
+		user-select: none;
+		cursor: pointer;
+		transition: all 100ms;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+	}
+
+	.plus, .minus {
+		color: rgb(255, 196, 42);
+		font-size: 2em;
+	}
+
+	.number {
+		outline: none;
+	}
+
+	.plus:active, .minus:active {
+		transform: scale(1.2);
+	}
+
+	.disabled { color: #aaa; }
+
+	.zinute {
+		font-size: 0.8em;
+	}
+
+	.reiksme { font-weight: bold; text-transform: uppercase;}
+	.vienetai { font-weight: light; font-size: 0.7em; }
+
+	.savaite { font-weight: bold; }
+	.dienos { display: flex; flex-wrap: wrap; width: 100%; }
+	.diena { width: 14.28%; text-align: center; cursor: pointer; padding: 0.5em; font-size: 1.3em;}
+
+	.hidden { display: none!important; }
+
+	.f15 { font-size: 1.5em; }
+
+	.check {
+		width: 32px;
+		height: 32px;
+		border: 3px solid #fff;
+		border-radius: 16px;
+		padding: 1em;
+		margin-right: 1em;
+		cursor: pointer;
+	}
+
+	.checked {
+		background-color: rgb(255 196 42);
+		border: 3px solid rgb(255 196 42);
+	}
+
+	svg, line { transition: all 500ms; }
+
+	.geltona { color: rgb(255,196,42) }
+	.zalia { color: rgb(20 175 67)}
+	.pilka { color: #888; }
+	.balta, .balta:visited { color: #fff; }
+	.raudona { color: rgb(255,50,50); }
+	.fgeltona { background-color: rgb(255,196,42) }
+	.fzalia { background-color: rgb(20 175 67)}
+	.fpilka { background-color: #888; }
+	.fraudona { background-color: rgb(255,50,50); }
+
+	iframe { max-width: 90%; }
+
+#aikstynai { overflow: hidden; }
+.aikstynas { min-width: 100vh; overflow:hidden;  }
+.arrow { padding: 1em; border: 3px dashed rgb(255,196,42); color: rgb(255,196,42); font-size: 1.5em; cursor: pointer; }
+.arrow:hover { border: 3px solid rgb(255,196,42); background-color: rgb(255,196,42); color: #000;}
+.value { padding: 0.5em; color: rgb(255,196,42); font-size: 2em; text-transform:  uppercase; letter-spacing: }
+
+.pointer { cursor: pointer; user-select: none; }
+
+#kamuolys > img {
+  display: inline-block;  /* Make it move and behave like a block element */
+  width: 50px;            /* Adjust size as needed */
+  height: 50px;
+  animation: moveAndRotate 8s ease-in 1; /* Animation settings */
+}
+
+/* Keyframes for the animation */
+@keyframes moveAndRotate {
+  0% {
+    transform: translateX(0) rotate(0deg); /* Start position */
+  }
+  100% {
+    transform: translateX(80vw) rotate(2400deg); /* End position (adjust calculation) */
+  }
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100vw); 
+  }
+  100% {
+    transform: translateX(calc(100vw - 100vw - 100%)); 
+  }
+}
+
+.grafikas {
+	.menuo { overflow-x: scroll; display: flex; justify-content: start; align-items: start; }
+	.menesio-diena { width: 120px; overflow: visible; }
+	.dienos-data { font-weight: bold; margin-bottom: 0.5em; font-size: 1em; width: 100px; position: sticky; top: 0px; position: -webkit-sticky; }
+	.laisva { background-color: rgb(255,196,42); color: #000; }
+	.uzimta { background-color: pink;  }
+	.intervalas { border: 1px dashed rgba(255,196,42,0.8); padding: 0.5em; margin: 0 0.5em 1em 0.5em; display:flex; flex-wrap: wrap;  }
+	.laikas { border-right: 20px solid rgb(222,0,0); flex-shrink: 1; padding-right: 0.5em; font-weight: bold; cursor: pointer; align-self: center; }
+	.rezervacija { padding: 0.5em; }
+	.eventas { padding: 0.5em; border: 2px solid rgb(0,0,222); margin: 0.5em; }
+}
+
+
+

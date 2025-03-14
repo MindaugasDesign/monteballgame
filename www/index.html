@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Monteball</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+	<link rel="canonical" href="https://monteball.eu" />
+	<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-storage-compat.js"></script>
+	<script src="js/f.js"></script>
+	<script src="js/s.js"></script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKCX897YP7"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-LKCX897YP7', {send_page_view: false});
+	</script>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"></script> -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Monteball" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Rezervuok Monteball žaidimą internetu!" />
+	<meta property="og:url" content="https://monteball.eu" />
+	<meta property="og:image" content="monteball-og.jpg" />
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="icons/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="icons/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="icons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="icons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="icons/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="icons/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="icons/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="Monteball"/>
+	<meta name="msapplication-TileColor" content="#151616" />
+	<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="icons/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="icons/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="icons/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="icons/mstile-310x310.png" />
+	<link rel="stylesheet" type="text/css" href="css/s.css">
+	<link rel="stylesheet" type="text/css" href="css/monteball.css">
+	<link rel="stylesheet" type="text/css" href="svg/css/style.css">
+	<script defer src="js/rezervacija.js"></script>
+	<script defer src="js/monteball.js"></script>
+	<script defer type="text/javascript">
+	        window.omnisend = window.omnisend || [];
+	        omnisend.push(["accountID", "6643610a61d9823af28dd47c"]);
+	        omnisend.push(["track", "$pageViewed"]);
+	        !function(){var e=document.createElement("script");
+	        e.type="text/javascript",e.async=!0,
+	        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+	        var t=document.getElementsByTagName("script")[0];
+	        t.parentNode.insertBefore(e,t)}();
+	</script>
+</head>
+<body>
+<header>
+	<div id="top-line">
+		<img id="logo" style="z-index: 101;" src="logo.svg" onclick="rodyti('montebolas')">
+		<div id="menu" onclick="ct(this, 'open'); ct(q('nav'),'closed')">
+		<span class="menu-top"></span> 
+		<span class="menu-bottom"></span>
+		</div>
+	</div>
+	<nav class="closed">
+	<div class="link" name="rezervacija" onclick="rodyti('rezervacija')">Rezervacija</div>
+	<div class="link" name="apie" onclick="rodyti('apie')">Apie mus</div>
+	<div class="link" name="cempionatai" onclick="rodyti('cempionatai')">Čempionatai</div>
+	<div class="link" name="aikstynai" onclick="rodyti('aikstynai')">Aikštynai</div>
+	<div class="link" name="kontaktai" onclick="rodyti('kontaktai')">Kontaktai</div>
+	</nav>
+</header>
+
+
+
+<main id="main" style="margin-top: 15vh; scroll-margin-top: 15vh;">
+
+<div class="page" id="montebolas" hidden>
+	<div class="eilutia pointer sutraukta" id="eilute" onclick="window.location = 'https://monteball.eu/?p=cempionatai'" style="background-color: rgb(255,196,42); color: #000; font-weight: 700; padding: 0.3rem; overflow: hidden; margin-bottom: 1rem;">
+		<div class="t15" id="eilutes-tekstas" style="padding: 0 2rem; white-space: nowrap; animation: scrollText 10s linear infinite; display: inline-block;"></div>
+	</div>
+
+	<script>
+		let slider = ec({e: 'div', a: {class: 'slider', images: JSON.stringify(['nuotraukos/monteball1.jpg', 'nuotraukos/monteball2.jpg', 'nuotraukos/monteball3.jpg']), interval: '3000', index: '0', total: '3'}})
+		let images = JSON.parse(ag(slider, 'images'))
+			for(image in images) {
+				let slide = ec({e: 'div', a: { class: 'slide'} })
+				slide.style.backgroundImage = `url('${images[image]}')`
+				add(slider, slide)
+			}
+			ca(slider.children[0], 'active')
+			setTimeout(changeSlide, ag(slider, 'interval'))
+
+			function changeSlide() {
+				let index = parseInt(ag(slider, 'index'))
+				setTimeout(changeSlide, ag(slider, 'interval'))
+				cr(slider.children[index], 'active')
+				index < parseInt(ag(slider, 'total')) - 1  ? index++ : index = 0; 
+				a(slider, 'index', index)
+				ca(slider.children[index], 'active')
+			}
+			document.currentScript.after(slider)
+	</script>
+
+	<div style="max-width: 800px; padding: 2em; margin: auto; text-align: center; letter-spacing: 3px; min-height: 30vh;">
+		<h3 class="geltona">Išbandykite jėgas žaidime, kuriame svarbu įspirti kamuolį į duobutes per kuo mažiau smūgių!</h3>
+	</div>
+	
+</div>
+
+<div class="page" id="rezervacija" hidden>
+	<div class="opcijos" id="lokacija" >
+		<div class="pav">Lokacija</div>
+		<div class="opcija pasirinkta" onclick="rinktis(this); rezervacija.lokacija = 'birzai'; pridetiZaidimus()">Biržai</div>
+		<div class="opcija" onclick="rinktis(this); rezervacija.lokacija = 'vilnius'; pridetiZaidimus()">Vilnius</div>
+	</div>
+
+	<div class="opcijos" id="zaidimas">
+		<div class="pav">Žaidimo variantai</div>
+		<div id="zaidimai"></div>
+	</div>
+
+	<div class="opcijos" id="diena">
+		<div id="kalendorius">
+			<div class="f sb ic">
+				<div class="minus" id="menesis-atgal" onclick="praeitasMenuo()"><</div>
+				<div class="pav" id="menesio-tekstas"></div>
+				<div class="plus" onclick="kitasMenuo()">></div>
+			</div>
+
+			<div class="savaite dienos" style="margin-bottom: 0.5em;">
+				<div class="diena">P.</div>
+				<div class="diena">A.</div>
+				<div class="diena">T.</div>
+				<div class="diena">K.</div>
+				<div class="diena">Pn.</div>
+				<div class="diena">Š</div>
+				<div class="diena">S</div>
+			</div>
+
+			<div class="dienos" id="dienos"></div>
+		</div>
+	</div>
+
+	<div class="opcijos" key="laikas" id="laikas">
+		<div class="pav">Laikas</div>
+		<div class="f fw c" id="laikai"></div>
+		<div class="p1">Nerandate tinkamo laiko? Skambinkite!</a></div>
+	</div>
+
+	<div class="opcijos" key="zaidejai" id="zaidejai">
+	<div class="pav">Žaidėjai</div>
+	<div class="fc">
+		<span class="minus" onclick="nuimtiZmogu(this)">-</span><span class="number" id="zaideju_skaicius">9</span><span class="plus" onclick="pridetiZmogu(this)">+</span>
+	</div>
+	</div>
+
+	<div class="opcijos" id="mokejimas">
+	<div class="pav">Mokėjimas</div>
+		<div class="opcija pasirinkta" onclick="rinktis(this); rezervacija.mokejimas.procentas = 100; atnaujintiKaina()">Mokėti visą sumą - <strong class="kaina"></strong><strong>€</strong></div>
+		<div class="opcija" onclick="rinktis(this); rezervacija.mokejimas.procentas = 10; atnaujintiKaina()">Mokėti tik rezervacijos mokestį - <strong id="mokestis"></strong><strong>€</strong></div>
+	</div>
+
+	<div class="opcijos" id="mokejimai">
+		<div class="pav">Apmokėjimo būdai</div>
+		<div id="apmokejimo_budai">
+			<div class="opcija pasirinkta" onclick="rinktis(this); rezervacija.mokejimas.budas = 'paymentInitiation'">Internetinė bankininkystė</div>
+			<div class="opcija" onclick="rinktis(this); rezervacija.mokejimas.budas = 'cardPayments'">Kortelė</div>
+		</div>
+	</div>
+
+	<div class="opcijos" id="kontaktas">
+		<div class="pav">Vardas</div>
+		<input type="name" name="name" id="vardas" oninput="rezervacija.kontaktas.vardas = this.value">
+		<div class="pav mt1">Telefonas</div>
+		<input type="phone" name="phone" placeholder="" value="" oninput="rezervacija.kontaktas.telefonas = this.value; ca(e('blogas-telefonas'), 'hidden')" id="telefonas">
+		<div class="raudona zinute hidden" id="blogas-telefonas">Negerai įvestas telefono nr.</div>
+		<div class="pav mt1">El. paštas</div>
+		<input type="email" name="email" oninput="rezervacija.kontaktas.el_pastas = this.value; ca(e('blogas-elpastas'), 'hidden')" id="el_pastas">
+		<div class="raudona zinute hidden" id="blogas-elpastas">Negerai įvestas el. paštas</div>
+	</div>
+
+	<div class="opcijos">
+		<div class="f c ic">
+			<div class="check" onclick="sutikimas(this)" id="taisykles"> </div>
+			<a href="?p=taisykles_salygos" target="blank">Sutinku su taisyklėmis</a>
+		</div>
+		<div class="raudona zinute hidden mt1" id="zinute-nesutikus">Privaloma sutikti su taisyklėmis</div>
+	</div>
+
+	<div class="fc" id="mokejimas">
+		<button id="apmoketi" onclick="mokejimas(this)">Apmokėti <span id="mokama-suma"></span><span>€</span></button>
+	</div>
+</div>
+<div class="page" id="apie"></div>
+<div class="page" id="kontaktai" hidden>
+	<div class="f fw c ma">
+
+		<div class="mb2 p1">
+			<div class="p1">
+				<div class="title">Biržų Monteball® aikštynas</div>
+				<div><a class="balta" href="https://maps.app.goo.gl/Ty2TVZN4ztmHYwq87" target="blank">Mantagailiškio k., Biržų raj., Mantagailiškio dvaras</a></div>
+				<div><a class="balta" href="tel:+37065978169">+370 659 78169</a></div>
+				<div><a class="balta" href="mailto:info@monteball.eu">info@monteball.eu</a></div>
+			</div>
+			<iframe class="p1" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4315.947192314329!2d24.6777059!3d56.2151875!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e88d71cb5ae4d9%3A0x1771f83e3af34bd7!2sMonteball!5e1!3m2!1sen!2slt!4v1713526180250!5m2!1sen!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+
+		<div class="mb2 p1">
+			<div class="p1">
+				<div class="title">Vilniaus Monteball® aikštynas</div>
+				<div><a class="balta" href="https://maps.app.goo.gl/5cK6fRKXp2imao6y5" target="blank">Šliaumiškių k., Vilniaus raj.</a></div>
+				<div><a class="balta" href="tel:+37065667331">+370 656 67331</a></div>
+				<div><a class="balta" href="mailto:vilnius@monteball.eu">vilnius@monteball.eu</a></div>
+			</div>
+			<iframe class="p1" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d15220.709715009316!2d25.31871244623533!3d54.946654878031325!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDU2JzM5LjciTiAyNcKwMTknMjYuMyJF!5e0!3m2!1sen!2slt!4v1713525954769!5m2!1sen!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+
+		<div class="mb2 p1">
+			<div class="p1">
+				<div class="title">Rokiškio Monteball® aikštynas</div>
+				<div><a class="balta" href="https://maps.app.goo.gl/azvU8SMmiSfYKu5c6" target="blank">Pagriaumėlių k., Rokiškio raj.</a></div>
+				<div><a class="balta" href="tel:+37068670663 ">+370 686 70663 </a></div>
+				<div><a class="balta" href="mailto:monteball98@gmail.com">monteball98@gmail.com</a></div>
+			</div>
+			<iframe class="p1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2174.866250468231!2d25.8857267!3d55.914577799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e81e9c00000001%3A0xd99333a475b59ab0!2sPagriaumele%2C%20L.%20Sablinsko%20sodyba!5e1!3m2!1sen!2slt!4v1713526153259!5m2!1sen!2slt" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+		<div class="mb2 p1">
+			<div class="p1">
+				<div class="title">Kauno Monteball® aikštynas</div>
+				<div><a class="balta" href="https://maps.app.goo.gl/W2ZHdCmqpLC5DD437" target="blank">Biliūnų k., Onupio g. 34, Kauno raj.</a></div>
+				<div><a class="balta" href="tel:+37061491142">+370 614 91142 </a></div>
+				<div><a class="balta" href="mailto:kaunas@monteball.eu">kaunas@monteball.eu</a></div>
+			</div>
+			<iframe class="p1" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9150.757195051194!2d23.7732478!3d55.0136112!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e6e19344205f13%3A0x976b543b572fb017!2sOnupio%20g.%2034%2C%20Bili%C5%ABnai%2C%2054104%20Kauno%20r.%20sav.!5e0!3m2!1sen!2slt!4v1724431784802!5m2!1sen!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</div>
+</div>
+<div class="page" id="cempionatai" hidden></div>
+<div class="page" id="aikstynai" hidden>
+	<div class="">
+		<div class="mb2 p1">
+			<div class="title">Biržų Monteball® aikštynas</div>
+			<script>
+		(function (storageRef) {
+		    let slider = ec({ e: 'div', a: { class: 'slider', index: '0' } });
+		    document.currentScript.after(slider);
+		    let index = 0;
+
+		    // Fetch and create slides for different screen sizes
+		    storageRef.listAll().then(result => {
+		        let totalImages = result.items.length;
+		        a(slider, 'total', totalImages);
+		        const screenWidth = window.innerWidth;
+
+		        result.items.forEach((imageRef) => {
+		            const imageName = imageRef.name.split('.')[0]; // Get the original image name
+
+		            let sizeSuffix = ''; // Determine size suffix based on screen width
+		            if (screenWidth >= 2000) {
+		                sizeSuffix = '_3000x3000';
+		            } else if (screenWidth >= 1000) {
+		                sizeSuffix = '_2000x2000';
+		            } else {
+		                sizeSuffix = '_1000x1000';
+		            }
+		            
+		            const sizedImageRef = storageRef.child(`sizes/${imageName}${sizeSuffix}.${imageRef.name.split('.')[1]}`);
+
+		            sizedImageRef.getDownloadURL().then(url => {
+		                let slide = ec({ e: 'div', a: { class: 'slide' } });
+		                slide.style.backgroundImage = `url('${url}')`;
+		                add(slider, slide);
+
+		                // Activate first slide once it's loaded
+		                if (index == 0) {
+		                    ca(slider.children[0], 'active');
+		                }
+
+		                // Start slide transitions when all slides are loaded
+		                if (slider.children.length === totalImages) {
+		                    setInterval(() => {
+		                        setTimeout(changeSlide, parseInt(ag(slider, 'interval'), 10) || 4000); 
+		                        cr(slider.children[index], 'active');
+		                        index < totalImages - 1 ? index++ : index = 0;
+		                        a(slider, 'index', index);
+		                        ca(slider.children[index], 'active');
+		                    }, parseInt(ag(slider, 'interval'), 10) || 4000);
+		                }
+		            });
+		        });
+		    }).catch(error => {
+		        console.error("Error fetching images from Firebase Storage:", error);
+		    });
+
+		    function changeSlide() {
+		        let index = parseInt(ag(slider, 'index'));
+		        cr(slider.children[index], 'active');
+		        index < parseInt(ag(slider, 'total')) - 1 ? index++ : index = 0;
+		        a(slider, 'index', index);
+		        ca(slider.children[index], 'active');
+		    }
+		})(st.ref('/galerija/birzai')); 
+			</script>
+		</div>
+
+		<div class="mb2 p1">
+			<div class="title">Rokiškio Monteball® aikštynas</div>
+			<script>
+				(function (storageRef) {
+				    let slider = ec({ e: 'div', a: { class: 'slider', index: '0' } });
+				    document.currentScript.after(slider);
+				    let index = 0;
+
+				    // Fetch and create slides for different screen sizes
+				    storageRef.listAll().then(result => {
+				        let totalImages = result.items.length;
+				        a(slider, 'total', totalImages);
+				        const screenWidth = window.innerWidth;
+
+				        result.items.forEach((imageRef) => {
+				            const imageName = imageRef.name.split('.')[0]; // Get the original image name
+
+				            let sizeSuffix = ''; // Determine size suffix based on screen width
+				            if (screenWidth >= 2000) {
+				                sizeSuffix = '_3000x3000';
+				            } else if (screenWidth >= 1000) {
+				                sizeSuffix = '_2000x2000';
+				            } else {
+				                sizeSuffix = '_1000x1000';
+				            }
+				            
+				            const sizedImageRef = storageRef.child(`sizes/${imageName}${sizeSuffix}.${imageRef.name.split('.')[1]}`);
+
+				            sizedImageRef.getDownloadURL().then(url => {
+				                let slide = ec({ e: 'div', a: { class: 'slide' } });
+				                slide.style.backgroundImage = `url('${url}')`;
+				                add(slider, slide);
+
+				                // Activate first slide once it's loaded
+				                if (index == 0) {
+				                    ca(slider.children[0], 'active');
+				                }
+
+				                // Start slide transitions when all slides are loaded
+				                if (slider.children.length === totalImages) {
+				                    setInterval(() => {
+				                        setTimeout(changeSlide, parseInt(ag(slider, 'interval'), 10) || 4000); 
+				                        cr(slider.children[index], 'active');
+				                        index < totalImages - 1 ? index++ : index = 0;
+				                        a(slider, 'index', index);
+				                        ca(slider.children[index], 'active');
+				                    }, parseInt(ag(slider, 'interval'), 10) || 4000);
+				                }
+				            });
+				        });
+				    }).catch(error => {
+				        console.error("Error fetching images from Firebase Storage:", error);
+				    });
+
+				    function changeSlide() {
+				        let index = parseInt(ag(slider, 'index'));
+				        cr(slider.children[index], 'active');
+				        index < parseInt(ag(slider, 'total')) - 1 ? index++ : index = 0;
+				        a(slider, 'index', index);
+				        ca(slider.children[index], 'active');
+				    }
+				})(st.ref('/galerija/rokiskis')); 
+			</script>
+		</div>
+
+		<div class="mb2 p1">
+			<div class="title">Vilniaus Monteball® aikštynas</div>
+			<script>
+				(function (storageRef) {
+				    let slider = ec({ e: 'div', a: { class: 'slider', index: '0' } });
+				    document.currentScript.after(slider);
+				    let index = 0;
+
+				    // Fetch and create slides for different screen sizes
+				    storageRef.listAll().then(result => {
+				        let totalImages = result.items.length;
+				        a(slider, 'total', totalImages);
+				        const screenWidth = window.innerWidth;
+
+				        result.items.forEach((imageRef) => {
+				            const imageName = imageRef.name.split('.')[0]; // Get the original image name
+
+				            let sizeSuffix = ''; // Determine size suffix based on screen width
+				            if (screenWidth >= 2000) {
+				                sizeSuffix = '_3000x3000';
+				            } else if (screenWidth >= 1000) {
+				                sizeSuffix = '_2000x2000';
+				            } else {
+				                sizeSuffix = '_1000x1000';
+				            }
+				            
+				            const sizedImageRef = storageRef.child(`sizes/${imageName}${sizeSuffix}.${imageRef.name.split('.')[1]}`);
+
+				            sizedImageRef.getDownloadURL().then(url => {
+				                let slide = ec({ e: 'div', a: { class: 'slide' } });
+				                slide.style.backgroundImage = `url('${url}')`;
+				                add(slider, slide);
+
+				                // Activate first slide once it's loaded
+				                if (index == 0) {
+				                    ca(slider.children[0], 'active');
+				                }
+
+				                // Start slide transitions when all slides are loaded
+				                if (slider.children.length === totalImages) {
+				                    setInterval(() => {
+				                        setTimeout(changeSlide, parseInt(ag(slider, 'interval'), 10) || 4000); 
+				                        cr(slider.children[index], 'active');
+				                        index < totalImages - 1 ? index++ : index = 0;
+				                        a(slider, 'index', index);
+				                        ca(slider.children[index], 'active');
+				                    }, parseInt(ag(slider, 'interval'), 10) || 4000);
+				                }
+				            });
+				        });
+				    }).catch(error => {
+				        console.error("Error fetching images from Firebase Storage:", error);
+				    });
+
+				    function changeSlide() {
+				        let index = parseInt(ag(slider, 'index'));
+				        cr(slider.children[index], 'active');
+				        index < parseInt(ag(slider, 'total')) - 1 ? index++ : index = 0;
+				        a(slider, 'index', index);
+				        ca(slider.children[index], 'active');
+				    }
+				})(st.ref('/galerija/vilnius')); 
+
+			</script>
+		</div>
+	</div>
+</div>
+<div class="page" id="privatumo_politika" hidden></div>
+<div class="page" id="taisykles_salygos" hidden></div>
+<div class="page" id="rezervacijos_perziura" hidden></div>
+
+</main>
+<footer>
+	<div class="footer-section">
+		<div class="pavadinimas title">Biržų Monteball® aikštynas</div>
+		<div class="googlemaps footer-item"><a class="balta" href="https://maps.app.goo.gl/Ty2TVZN4ztmHYwq87" target="blank">Mantagailiškio k., Biržų raj.</a></div>
+		<div class="telefonas footer-item"><a class="balta" href="tel:+37065978169">+370 659 78169</a></div>
+		<div class="elpastas footer-item"><a class="balta" href="mailto:info@monteball.eu">info@monteball.eu</a></div>
+	</div>
+	<div class="footer-section">
+		<div class="pavadinimas title">Vilniaus Monteball® aikštynas</div>
+		<div class="googlemaps footer-item"><a class="balta" href="https://maps.app.goo.gl/5cK6fRKXp2imao6y5" target="blank">Šliaumiškių k., Vilniaus raj.</a></div>
+		<div class="telefonas footer-item"><a class="balta" href="tel:+37065667331">+370 656 67331</a></div>
+		<div class="elpastas footer-item"><a class="balta" href="mailto:vilnius@monteball.eu">vilnius@monteball.eu</a></div>
+	</div>
+	<div class="footer-section">
+		<div class="title">Rokiškio Monteball® aikštynas</div>
+		<div class="footer-item"><a class="balta" href="https://maps.app.goo.gl/azvU8SMmiSfYKu5c6" target="blank">Pagriaumėlių k., Rokiškio raj.</a></div>
+		<div class="telefonas footer-item"><a class="balta" href="tel:+37068670663 ">+370 686 70663 </a></div>
+		<div class="elpastas footer-item"><a class="balta" href="mailto:monteball98@gmail.com">monteball98@gmail.com</a></div>
+	</div>
+	<div class="footer-section">
+		<div class="title">Kauno Monteball® aikštynas</div>
+		<div class="footer-item"><a class="balta" href="https://maps.app.goo.gl/W2ZHdCmqpLC5DD437" target="blank">Biliūnų k., Onupio g. 34, Kauno raj.</a></div>
+		<div class="telefonas footer-item"><a class="balta" href="tel:+37061491142">+370 614 91142</a></div>
+		<div class="elpastas footer-item"><a class="balta" href="mailto:kaunas@monteball.eu">kaunas@monteball.eu</a></div>
+	</div>
+	<div class="footer-section">
+		<div class="nuoroda footer-item footer-link" nuoroda="privatumo_politika" onclick="rodyti('privatumo_politika')">Privatumo politika</div>
+		<div class="nuoroda footer-item footer-link" nuoroda="taisykles_salygos" onclick="rodyti('taisykles_salygos')">Paslaugų teikimo taisyklės ir sąlygos</div>
+	</div>
+</footer>
+</body>
+</html>

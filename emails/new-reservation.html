@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script type="text/javascript">
+		const rezervacija = { 
+			nr: 'ABC',
+			data: '2024-06-19',
+			valanda: '18',
+			zaidejai: 9,
+			varianto_pavadinimas: 'Monteball Čempionatas 2024',
+			apmoketa: 17,
+			liko_moketi: 155,
+			vardas: 'Tadas',
+			telefonas: '+37064147039',
+			el_pastas: 'tadasb@gmail.com'
+		}
+
+		document.write(
+		`<div style="background-color: #151616;">
+        <div style="background-color: #151616; font-size: 18px; font-family: sans-serif; color: #fff; line-height: 1.5em; padding: 2em; margin: auto; max-width: 700px; letter-spacing: 2px;">
+
+        <h2 style="color: rgb(255,196,42); margin-top: 1.5em;">Rezervacija</h2>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Numeris:</div><div style="font-weight: bold; color: #fff;">${rezervacija.nr}</div></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Data:</div><div style="font-weight: bold; color: #fff;">${rezervacija.data}</div></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Valanda:</div><div style="font-weight: bold; color: #fff;">${rezervacija.valanda}:00</div></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Žaidėjai:</div><div style="font-weight: bold; color: #fff;">${rezervacija.zaidejai}</div></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Žaidimas:</div><div style="font-weight: bold; color: #fff;">${rezervacija.zaidimas}</div></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Variantas:</div><div style="font-weight: bold; color: #fff;">${rezervacija.varianto_pavadinimas}</div></div>
+        <h2 style="color: rgb(255,196,42); margin-top: 1.5em;">Apmokėjimas</h2>
+        <div style="color: #fff; ">Sumokėta ${rezervacija.apmoketa}€</div>
+        <div style="color: #fff; ">Liko mokėti: ${rezervacija.liko_moketi}€ </div>
+        <h2 style="color: rgb(255,196,42); margin-top: 1.5em;">Kontaktas</h2>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Vardas:</div><div style="font-weight: bold; color: #fff;">${rezervacija.vardas}</div></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">Telefonas:</div><a href="tel:${rezervacija.telefonas}" style="font-weight: bold; color: #fff;">${rezervacija.telefonas}</a></div>
+        <div style="display: flex;"><div style="margin-right: 0.5em; color: #fff; ">El. paštas:</div><a href="mailto:${rezervacija.el_pastas}" style="font-weight: bold; color: #fff;">${rezervacija.el_pastas}</a></div>
+      </div>
+    </div>`
+		)
+	</script>
+</head>
+<body>
+
+
+
+<script type="text/javascript"></script>
+</body>
+</html>

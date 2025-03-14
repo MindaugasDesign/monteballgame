@@ -1,0 +1,341 @@
+/* --------------------------------
+
+Generated using nucleoapp.com
+
+-------------------------------- */
+.m {
+    display: inline-block;
+    background-image: url(../icons.svg);
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+.m.confirm {
+    background-position: -0px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.f-comment {
+    background-position: -32px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.chat-2 {
+    background-position: -64px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.comment {
+    background-position: -96px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.chat-1 {
+    background-position: -128px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.comments-2 {
+    background-position: -160px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.comments-1 {
+    background-position: -192px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.trophy-1 {
+    background-position: -224px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.account {
+    background-position: -256px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.trophy {
+    background-position: -288px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.soccer-ball {
+    background-position: -320px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.f-delete {
+    background-position: -352px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.c-delete {
+    background-position: -384px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.t-delete {
+    background-position: -416px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.e-delete {
+    background-position: -448px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.i-delete {
+    background-position: -480px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.d-delete {
+    background-position: -512px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.d-add {
+    background-position: -544px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.t-add {
+    background-position: -576px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.c-add {
+    background-position: -608px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.e-add-2 {
+    background-position: -640px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.e-add-1 {
+    background-position: -672px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.triangle-sm-left {
+    background-position: -704px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.triangle-left {
+    background-position: -736px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.ctrl-left {
+    background-position: -768px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.sign-left {
+    background-position: -800px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.arrow-sm-left {
+    background-position: -832px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.left-arrow {
+    background-position: -864px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.sign-right {
+    background-position: -896px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.ctrl-right {
+    background-position: -928px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.triangle-sm-right {
+    background-position: -960px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.arrow-sm-right {
+    background-position: -992px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.right-arrow {
+    background-position: -1024px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.triangle-right {
+    background-position: -1056px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.email-open-4 {
+    background-position: -1088px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.phone-2 {
+    background-position: -1120px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.phone-1 {
+    background-position: -1152px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.email-open-1 {
+    background-position: -1184px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.currency-euro-2 {
+    background-position: -1216px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.currency-euro-1 {
+    background-position: -1248px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.hash-mark-2 {
+    background-position: -1280px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.hash-mark-1 {
+    background-position: -1312px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.priority-low-2 {
+    background-position: -1344px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.priority-low-1 {
+    background-position: -1376px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.soccer-2 {
+    background-position: -1408px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.soccer-1 {
+    background-position: -1440px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.position-pin {
+    background-position: -1472px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.square-pin {
+    background-position: -1504px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.clock-2 {
+    background-position: -1536px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.clock-1 {
+    background-position: -1568px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.calendar-date {
+    background-position: -1600px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.whistle-2 {
+    background-position: -1632px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.whistle-1 {
+    background-position: -1664px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.golf-course-2 {
+    background-position: -1696px 0px;
+    height: 32px;
+    width: 32px;
+}
+
+.m.golf-course-1 {
+    background-position: -1728px 0px;
+    height: 32px;
+    width: 32px;
+} 

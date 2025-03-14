@@ -1,0 +1,74 @@
+#admin {
+	position: fixed;
+	transition: all 200ms;
+	width: 0;
+	height: 0;
+	bottom:0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: #000;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1000;
+}
+
+#toggle {
+	position: fixed; bottom: 0; 
+	left: 0; 
+	width: 50px; 
+	height: 50px; 
+	background-color: #000; 
+	color: #fff; 
+	font-size: 2em; 
+	cursor: pointer; 
+	user-select: none;
+	border-radius: 3em;
+	z-index: 1001;
+	display: flex;
+}
+
+.show {
+	width: 100vw!important;
+	height: 100vh!important;
+	display: flex;
+}
+
+.rotate45 {
+	transform: rotate(45deg);
+}
+
+.admin-link { 
+	padding: 1em; 
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	border: 3px solid rgb(255, 196, 42);
+	color: #fff; 
+	margin-bottom: 2em; 
+	cursor: pointer;
+	transition: all 200ms;
+}
+
+.admin-link:hover { background-color: rgba(255, 196, 42, 0.3) }
+
+#lokacijos-pasirinkimas { margin: auto; border: 2px solid #fff; cursor: pointer; text-transform: uppercase; }
+.lokacijos-pasirinkimas { padding: 1em;}
+#aktyvi-lokacija { padding: 1em; }
+.siandien { color: #ffbb42; }
+.ikona { display: flex; align-items: center; }
+
+
+#rezervacijos {
+	.rezervacija {
+		border: 2px dashed rgb(255,196,42);
+		margin: 0 1rem 2rem 1rem;
+
+	}
+
+	.admino-komentaras { border: 1px dashed #ddd; width: 100%; outline: none; padding: 0.2em; margin: 0 0.5em 0 0; }
+	.admino-komentaras:focus { border: 1px solid #ddd; }
+}
+
+.teisejas { padding: 1em; background-color: rgb(255,196,42); color: black; margin: 0 0.5em 0.5em 0; }

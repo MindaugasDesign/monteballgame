@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		* { background-color: #151616; font-size: 20px; font-family: sans-serif; color: #fff; line-height: 1.5em;}
+		a { text-decoration: underline; }
+		h1 { font-size: 1.5em; font-weight: bold; letter-spacing: 3px;}
+		h2 { font-size: 1.3em; font-weight: bold; letter-spacing: 3px;}
+		.yellow { color: rgb(255 196 42); }
+		.f { display: flex; }
+		#email { padding: 2em; max-width: 700px; margin: auto; }
+		div { padding: 0 0.5em 0.5em 0 }
+	</style>
+</head>
+<body>
+
+	<div style="background-color: #151616; font-size: 20px; font-family: sans-serif; color: #fff; line-height: 1.5em; padding: 2em; margin: auto; max-width: 700px; letter-spacing: 2px;">
+
+      <h2 style="color: rgb(255,196,42); margin-top: 1.5em;">Rezervacija</h2>
+
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Numeris:</div>
+      	<div style="font-weight: bold;">${rezervacija.nr}</div>
+      </div>
+
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Data:</div>
+      	<div style="font-weight: bold;">${rezervacija.data}</div>
+      </div>
+      
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Valanda:</div>
+      	<div style="font-weight: bold;">${rezervacija.valanda}:00</div>
+      </div>
+      
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Žaidėjai:</div>
+      	<div style="font-weight: bold;">${rezervacija.zaidejai}</div>
+      </div>
+      
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Variantas:</div>
+      	<div style="font-weight: bold;">${rezervacija.varianto_pavadinimas}</div>
+      </div>
+
+      <h2 style="color: rgb(255,196,42); margin-top: 1.5em;">Apmokėjimas</h2>
+      
+      <div>Sumokėta ${rezervacija.apmoketa}€</div>
+      
+      <div>Liko mokėti: ${rezervacija.liko_moketi}€ </div>
+      <h2 style="color: rgb(255,196,42); margin-top: 1.5em;">Kontaktas</h2>
+      
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Vardas:</div>
+      	<div style="font-weight: bold;">${rezervacija.vardas}</div>
+      </div>
+      
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">Telefonas:</div>
+      	<div style="font-weight: bold;">${rezervacija.telefonas}</div>
+      </div>
+      
+      <div style="display: flex;">
+      	<div style="margin-right: 0.5em;">El. paštas:</div>
+      	<div style="font-weight: bold;">${rezervacija.el_pastas}</div>
+      </div>
+      
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Prisijungimas</title>
+        <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+		<script src="js/s.js"></script>
+  <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LetveMpAAAAABi0uXgUV1hbfRw3j0YcloS9KD9J"></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdLZ8ApAAAAAPsR3G6QbQYzTEF83dxsl1iCDU-B"></script>
+        <style type="text/css">
+        	body {
+     			margin: 0;
+     			padding: 0;
+     			font-family: sans-serif;
+     			display: flex;
+     			justify-content: center;
+     			align-items: center;
+     			flex-direction: column;
+     			text-align: center;
+     			min-height: 50vh;
+        	}
+
+        	#prisijungimas {
+        		max-width: 90vw;
+        		margin: auto;
+        		margin-top: 30vmin;
+        		text-align: center;
+        	}
+
+			input {
+				border: 6px solid #222;
+				max-width: 100%;
+				width: 90%;
+				text-align: center;
+				padding: 1em;
+				box-sizing: border-box;
+				outline: none;
+				margin-bottom: 3vmin;
+				font-size: 1.5em;
+
+			}
+
+			button {
+				padding: 1em;
+				border: 6px solid #222;
+				background-color: rgb(255,196,42);
+				color: #000;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				font-weight: bold;
+				font-size: 1em;
+				cursor: pointer;
+			}
+
+			button:hover {
+				text-decoration: underline;
+			}
+
+			div { font-size: 1em; }
+
+			.rezervacija {
+				margin-bottom: 2em;
+				padding: 1em;
+			}
+
+			.rezervacijos-informacija {
+				background-color: #ddd;
+				padding: 1em;
+				letter-spacing: 2px;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+
+
+			.f { display:flex; }
+			.fw { flex-wrap: wrap; }
+			.c { justify-content:center; }
+			.sb { justify-content: space-between; }
+			.sa { justify-content: space-around; }
+			.ic { align-items:center; }
+			.p1 { padding: 1em; }
+			.pt1 { padding-top: 1em; }
+
+			h1 { padding:1em; }
+        </style>
+
+<script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAfLPCPtYBlEtLdwgC-obftRjk_wWrLZ08",
+      authDomain: "monteball.firebaseapp.com",
+      projectId: "monteball",
+      storageBucket: "monteball.appspot.com",
+      messagingSenderId: "235083247530",
+      appId: "1:235083247530:web:fe5c2ffe72dec557c4c5d3",
+      measurementId: "G-5WENQK4RN1",
+      databaseURL: "monteball-default-rtdb.europe-west1.firebasedatabase.app"
+    };
+
+	firebase.initializeApp(firebaseConfig)
+	const auth = firebase.auth()
+
+</script>
+	</head>
+
+	<body>
+		<div id="prisijungimas" hidden>
+			<input name="phone" type="phone" required placeholder="telefonas" id="telefonas">
+			<input name="code" type="number" placeholder="kodas" id="kodas" hidden>
+			<button onclick="gautiKoda()" id="jungtis">jungtis</button>
+			<button onclick="prisijungti()" hidden id="prisijungti">prisijungti</button>
+		</div>
+
+		<div id="vartotojas" hidden><div style="padding: 1em; font-weight: bold; text-transform: uppercase; letter-spacing: 3px;"></div><button onclick="auth.signOut()">atsijungti</button></div>
+	</body>
+
+	<script>
+
+const recaptchaVerifier = new firebase.auth.RecaptchaVerifier('jungtis', {
+  'size': 'invisible',
+  'callback': (response) => {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+  }
+});
+
+function gautiKoda() {
+	const tel = e('telefonas').value
+	firebase.auth().signInWithPhoneNumber(tel, recaptchaVerifier)
+	    .then((confirmationResult) => {
+	      window.confirmationResult = confirmationResult;
+	      e('telefonas').hidden = true
+	      e('kodas').hidden = false
+	      e('jungtis').hidden = true
+	      e('prisijungti').hidden = false
+
+	    }).catch((error) => {
+	    	notify(error.message)
+	    	console.log(error)
+	    });
+}
+
+function prisijungti() {
+
+	confirmationResult.confirm(e('kodas').value).then((result) => {
+	  const user = result.user;
+		}).catch((error) => {
+			notify(error.message)
+		});
+		}
+
+	auth.onAuthStateChanged(user => {
+	    if(user) {
+
+	  		e('prisijungimas').hidden = true
+	  		e('vartotojas').children[0].innerText = user.phoneNumber
+	  		e('vartotojas').hidden = false
+	  		window.location.href = 'https://monteball.eu'
+	    }
+	    else {
+	        e('prisijungimas').hidden = false
+	        e('vartotojas').hidden = true
+	    }
+	})
+
+	</script>
+
+</html>
