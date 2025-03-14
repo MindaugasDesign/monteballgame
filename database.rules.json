@@ -1,0 +1,82 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+      "pages": {
+        ".read": true,
+        ".write": "auth !== null && root.child('permissions/editPages/' + auth.uid).val() === true"
+      },
+      "uzimti_laikai": {
+        ".read": true,
+        ".write": "auth !== null"
+      },
+      "permissions": {
+        ".read": false,
+        ".write": false
+      },
+      "paymentRedirects": {
+        ".read": true,
+        ".write": false
+      },
+      "tokens": {
+        ".write": "auth !== null",
+        ".read": "auth !== null"
+      },
+      "calendars": {
+        ".read": "auth !== null",
+        ".write": "auth !== null"
+      },
+      "scripts": {
+        "admin": {
+          ".read": "auth !== null && root.child('permissions/admin/' + auth.uid).val() === true",
+          ".write": false
+        }
+      },
+      "styles": {
+        "admin": {
+          ".read": "auth !== null && root.child('permissions/admin/' + auth.uid).val() === true",
+          ".write": false
+        }
+      },
+      "admin": {
+        ".write": "auth !== null && root.child('permissions/admin/' + auth.uid).val() === true",
+        ".read": false,
+        "puslapiai": {
+            "$puslapis": {
+              ".read": "auth !== null && root.child('teises/' + auth.uid + '/admin/puslapiai/' + $puslapis).val() === true"
+            }
+          }
+      },
+      "teises": {
+        ".read": "auth !== null && root.child('permissions/admin/' + auth.uid).val() === true",
+        ".write": false
+      },
+      "laisvi_laikai": {
+        "$lokacija": {
+          ".read": "auth !== null && root.child('teises/' + auth.uid + '/admin/lokacija').val() === $lokacija",
+          ".write": "auth !== null && root.child('teises/' + auth.uid + '/admin/lokacija').val() === $lokacija",
+            "$year": {
+              ".read": false, ".write": false,
+                "$month": {
+                  ".read": "auth !== null && root.child('teises/' + auth.uid + '/admin/lokacija').val() === $lokacija",
+                  ".write": "auth !== null && root.child('teises/' + auth.uid + '/admin/lokacija').val() === $lokacija",
+                    "$day": {
+                      ".read": true,
+                        ".write": "auth !== null && root.child('teises/' + auth.uid + '/lokacijos/' + $lokacija + '/keisti_laikus').val() === true"
+                    }
+                }
+            }
+        }
+      },
+      "calendar": {
+        "items": {
+          ".read": "auth !== null && root.child('teises/' + auth.uid + '/lokacijos/birzai').val() != null"
+        }
+      },
+        
+      "nustatymai": {
+        ".read": "auth !== null && root.child('permissions/admin/' + auth.uid).val() === true",
+        ".write": "auth !== null && root.child('permissions/admin/' + auth.uid).val() === true",
+      }
+  }
+}
