@@ -1,60 +1,179 @@
-const
-dabar = new Date().toISOString().split('T')[0],
-dabar_metai = dabar.split('-')[0].slice(2,4),
-dabar_menuo = dabar.split('-')[1],
-dabar_diena = dabar.split('-')[2],
-savaites_dienos = ['Sekm.', 'Pirm.', 'Antr.', 'Treč.', 'Ketv.', 'Penkt.', 'Šešt.'],
-menesiai = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'],
-zaidimai = [
-	// { id: 'b0', lokacija: 'birzai', zaidimas: 'monteball', pavadinimas: 'Monteball Čempionatas 2024', trukme: 150, duobutes: 8, kaina: 19, cempionatas: true, nuo: 240501, iki: 240921 },
-	{ id: 'b1', lokacija: 'birzai', zaidimas: 'monteball', pavadinimas: '14 duobučių', trukme: 210, duobutes: 14, kaina: 19, cempionatas: false },
-	{ id: 'b2', lokacija: 'birzai', zaidimas: 'monteball', pavadinimas: '11 duobučių', trukme: 180, duobutes: 11, kaina: 17, cempionatas: false },
-	{ id: 'b3', lokacija: 'birzai', zaidimas: 'monteball', pavadinimas: '8 duobutės', trukme: 150, duobutes: 8, kaina: 15, cempionatas: false },
-	{ id: 'b4', lokacija: 'birzai', zaidimas: 'monteball', pavadinimas: '5 duobutės', trukme: 90, duobutes: 5, kaina: 10, cempionatas: false },
-	{ id: 'bt2', lokacija: 'birzai', zaidimas: 'tablemonteball', pavadinimas: 'Tablemonteball 4val.', trukme: 240, kaina: 15, cempionatas: false },
-	{ id: 'bt1', lokacija: 'birzai', zaidimas: 'tablemonteball', pavadinimas: 'Tablemonteball 2val.', trukme: 120, kaina: 10, cempionatas: false },
-	// { id: 'v0', lokacija: 'vilnius', zaidimas: 'monteball', pavadinimas: 'Monteball Čempionatas 2024', trukme: 150, duobutes: 8, kaina: 19, cempionatas: true, nuo: 240501, iki: 240921 },
-	{ id: 'v1', lokacija: 'vilnius', zaidimas: 'monteball', pavadinimas: '14 duobučių', trukme: 210, duobutes: 14, kaina: 20, cempionatas: false },
-	{ id: 'v2', lokacija: 'vilnius', zaidimas: 'monteball', pavadinimas: '11 duobučių', trukme: 180, duobutes: 11, kaina: 18, cempionatas: false },
-	{ id: 'v3', lokacija: 'vilnius', zaidimas: 'monteball', pavadinimas: '8 duobutės', trukme: 150, duobutes: 8, kaina: 17, cempionatas: false },
-	{ id: 'v4', lokacija: 'vilnius', zaidimas: 'monteball', pavadinimas: '5 duobutės', trukme: 90, duobutes: 5, kaina: 15, cempionatas: false }
-]
+const dabar = new Date().toISOString().split("T")[0],
+  dabar_metai = dabar.split("-")[0].slice(2, 4),
+  dabar_menuo = dabar.split("-")[1],
+  dabar_diena = dabar.split("-")[2],
+  savaites_dienos = [
+    "Sekm.",
+    "Pirm.",
+    "Antr.",
+    "Treč.",
+    "Ketv.",
+    "Penkt.",
+    "Šešt.",
+  ],
+  menesiai = [
+    "Sausis",
+    "Vasaris",
+    "Kovas",
+    "Balandis",
+    "Gegužė",
+    "Birželis",
+    "Liepa",
+    "Rugpjūtis",
+    "Rugsėjis",
+    "Spalis",
+    "Lapkritis",
+    "Gruodis",
+  ],
+  zaidimai = [
+    // { id: 'b0', lokacija: 'birzai', zaidimas: 'monteball', pavadinimas: 'Monteball Čempionatas 2024', trukme: 150, duobutes: 8, kaina: 19, cempionatas: true, nuo: 240501, iki: 240921 },
+    {
+      id: "b1",
+      lokacija: "birzai",
+      zaidimas: "monteball",
+      pavadinimas: "14 duobučių",
+      trukme: 210,
+      duobutes: 14,
+      kaina: 19,
+      cempionatas: false,
+    },
+    {
+      id: "b2",
+      lokacija: "birzai",
+      zaidimas: "monteball",
+      pavadinimas: "11 duobučių",
+      trukme: 180,
+      duobutes: 11,
+      kaina: 17,
+      cempionatas: false,
+    },
+    {
+      id: "b3",
+      lokacija: "birzai",
+      zaidimas: "monteball",
+      pavadinimas: "8 duobutės",
+      trukme: 150,
+      duobutes: 8,
+      kaina: 15,
+      cempionatas: false,
+    },
+    {
+      id: "b4",
+      lokacija: "birzai",
+      zaidimas: "monteball",
+      pavadinimas: "5 duobutės",
+      trukme: 90,
+      duobutes: 5,
+      kaina: 10,
+      cempionatas: false,
+    },
+    {
+      id: "bt2",
+      lokacija: "birzai",
+      zaidimas: "tablemonteball",
+      pavadinimas: "Tablemonteball 4val.",
+      trukme: 240,
+      kaina: 15,
+      cempionatas: false,
+    },
+    {
+      id: "bt1",
+      lokacija: "birzai",
+      zaidimas: "tablemonteball",
+      pavadinimas: "Tablemonteball 2val.",
+      trukme: 120,
+      kaina: 10,
+      cempionatas: false,
+    },
+    // { id: 'v0', lokacija: 'vilnius', zaidimas: 'monteball', pavadinimas: 'Monteball Čempionatas 2024', trukme: 150, duobutes: 8, kaina: 19, cempionatas: true, nuo: 240501, iki: 240921 },
+    {
+      id: "v1",
+      lokacija: "vilnius",
+      zaidimas: "monteball",
+      pavadinimas: "14 duobučių",
+      trukme: 210,
+      duobutes: 14,
+      kaina: 20,
+      cempionatas: false,
+    },
+    {
+      id: "v2",
+      lokacija: "vilnius",
+      zaidimas: "monteball",
+      pavadinimas: "11 duobučių",
+      trukme: 180,
+      duobutes: 11,
+      kaina: 18,
+      cempionatas: false,
+    },
+    {
+      id: "v3",
+      lokacija: "vilnius",
+      zaidimas: "monteball",
+      pavadinimas: "8 duobutės",
+      trukme: 150,
+      duobutes: 8,
+      kaina: 17,
+      cempionatas: false,
+    },
+    {
+      id: "v4",
+      lokacija: "vilnius",
+      zaidimas: "monteball",
+      pavadinimas: "5 duobutės",
+      trukme: 90,
+      duobutes: 5,
+      kaina: 15,
+      cempionatas: false,
+    },
+  ];
 
 var rezervacija = {
-	nr: null,
-	lokacija: 'birzai',
-	zaidimas: { id: 'b0', lokacija: 'birzai', zaidimas: 'monteball', trukme: 150, duobutes: 8, kaina: 19, cempionatas: true, nuo: 240501, iki: 240921 },
-	diena: null,
-	zaidejai: 9,
-	kontaktas: {
-		vardas: '',
-		el_pastas: '',
-		telefonas: '',
-	},
-	mokejimas: {
-		procentas: 100,
-		suma: 171,
-		moketi: 171,
-		apmoketa: 0,
-		liko_moketi: 0,
-		budas: 'paymentInitiation',
-	}
-},
-metai = dabar_metai, 
-menuo = dabar_menuo
+    nr: null,
+    lokacija: "birzai",
+    zaidimas: {
+      id: "b0",
+      lokacija: "birzai",
+      zaidimas: "monteball",
+      trukme: 150,
+      duobutes: 8,
+      kaina: 19,
+      cempionatas: true,
+      nuo: 240501,
+      iki: 240921,
+    },
+    diena: null,
+    zaidejai: 9,
+    kontaktas: {
+      vardas: "",
+      el_pastas: "",
+      telefonas: "",
+    },
+    mokejimas: {
+      procentas: 100,
+      suma: 171,
+      moketi: 171,
+      apmoketa: 0,
+      liko_moketi: 0,
+      budas: "paymentInitiation",
+    },
+  },
+  metai = dabar_metai,
+  menuo = dabar_menuo;
 
-function pridetiZaidimus() { hf(e('zaidimas'))
-	var filtruoti_zaidimai = zaidimai.filter(zaidimas => zaidimas.lokacija === rezervacija.lokacija)
-	var variantu_elementas = e('zaidimai')
-	variantu_elementas.innerHTML = ''
+function pridetiZaidimus() {
+  hf(e("zaidimas"));
+  var filtruoti_zaidimai = zaidimai.filter(
+    (zaidimas) => zaidimas.lokacija === rezervacija.lokacija
+  );
+  var variantu_elementas = e("zaidimai");
+  variantu_elementas.innerHTML = "";
 
-
-		filtruoti_zaidimai.forEach(zaidimas => {
-			var new_element = c('div')
-			add(variantu_elementas, new_element)
-			if(zaidimas.cempionatas) {
-				new_element.outerHTML = 
-				`
+  filtruoti_zaidimai.forEach((zaidimas) => {
+    var new_element = c("div");
+    add(variantu_elementas, new_element);
+    if (zaidimas.cempionatas) {
+      new_element.outerHTML = `
 				<div class="opcija f sa ic" name="${zaidimas.id}" onclick="rinktisZaidima(this)">
 					<div class="m02 hide600">
 						<svg style="max-height: 70px;" width="100px" height="299px" viewBox="0 0 298 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -78,290 +197,494 @@ function pridetiZaidimus() { hf(e('zaidimas'))
 						<div class="vienetai">žaidėjui</div>
 					</div>
 				</div>
-				`
-			}
-			else if(zaidimas.zaidimas === 'tablemonteball') { 
-			new_element.outerHTML = 
-				`<div class="opcija f sa" name="${zaidimas.id}" onclick="rinktisZaidima(this)">
+				`;
+    } else if (zaidimas.zaidimas === "tablemonteball") {
+      new_element.outerHTML = `<div class="opcija f sa" name="${
+        zaidimas.id
+      }" onclick="rinktisZaidima(this)">
 					<div><div>TABLE</div><div>MONTEBALL</div></div>
-					<div><div class="reiksme">${zaidimas.kaina}€</div><div class="vienetai">žaidėjui</div></div>
-					<div><div class="reiksme">~${zaidimas.trukme/60}</div><div class="vienetai">val.</div></div>
-				</div>`
-			}
-			else {
-			new_element.outerHTML = 
-				`
+					<div><div class="reiksme">${
+            zaidimas.kaina
+          }€</div><div class="vienetai">žaidėjui</div></div>
+					<div><div class="reiksme">~${
+            zaidimas.trukme / 60
+          }</div><div class="vienetai">val.</div></div>
+				</div>`;
+    } else {
+      new_element.outerHTML = `
 				<div class="opcija f sa" name="${zaidimas.id}" onclick="rinktisZaidima(this)">
-					<div class="m04"><div class="reiksme">~${zaidimas.trukme/60}</div><div class="vienetai">val.</div></div>
-					<div class="m04"><div class="reiksme">${zaidimas.duobutes}</div><div class="vienetai">duobu${zaidimas.duobutes<10 ? 'tės' : 'čių'}</div></div>
-					<div class="m04"><div class="reiksme">${zaidimas.kaina}€</div><div class="vienetai">žaidėjui</div></div>
+					<div class="m04"><div class="reiksme">~${
+            zaidimas.trukme / 60
+          }</div><div class="vienetai">val.</div></div>
+					<div class="m04"><div class="reiksme">${
+            zaidimas.duobutes
+          }</div><div class="vienetai">duobu${
+        zaidimas.duobutes < 10 ? "tės" : "čių"
+      }</div></div>
+					<div class="m04"><div class="reiksme">${
+            zaidimas.kaina
+          }€</div><div class="vienetai">žaidėjui</div></div>
 				</div>
-				`
-			}
-		})
-	e('zaidimai').children[0].click()
+				`;
+    }
+  });
+  e("zaidimai").children[0].click();
 }
 
 function rinktisZaidima(opcija) {
-	const varianto_id = ag(opcija, 'name')
-	var zaidimo_variantas = zaidimai.find(variantas => variantas.id === varianto_id)
-	rezervacija.zaidimas = zaidimo_variantas
-	rinktis(opcija)
-	rodytiKalendoriu()
-	atnaujintiKaina()
-	if(e('info-zaidejai') && rezervacija.zaidimas.zaidimas === 'tablemonteball' && rezervacija.zaidejai <=5 ) { e('info-zaidejai').remove() }
-	if(e('info-zaidejai') && rezervacija.zaidimas.zaidimas === 'monteball' && rezervacija.zaidejai <=9 ) { e('info-zaidejai').remove() }
+  const varianto_id = ag(opcija, "name");
+  var zaidimo_variantas = zaidimai.find(
+    (variantas) => variantas.id === varianto_id
+  );
+  rezervacija.zaidimas = zaidimo_variantas;
+  rinktis(opcija);
+  rodytiKalendoriu();
+  atnaujintiKaina();
+  if (
+    e("info-zaidejai") &&
+    rezervacija.zaidimas.zaidimas === "tablemonteball" &&
+    rezervacija.zaidejai <= 5
+  ) {
+    e("info-zaidejai").remove();
+  }
+  if (
+    e("info-zaidejai") &&
+    rezervacija.zaidimas.zaidimas === "monteball" &&
+    rezervacija.zaidejai <= 9
+  ) {
+    e("info-zaidejai").remove();
+  }
 }
 
 function rodytiKalendoriu() {
-	const calendar_date = new Date('20'+ metai, menuo-1, 1)
-	t(e('menesio-tekstas'), menesiai[menuo-1])
+  const calendar_date = new Date("20" + metai, menuo - 1, 1);
+  t(e("menesio-tekstas"), menesiai[menuo - 1]);
 
-	const dienos = e('dienos')
-	var tuscios_dienos = 0
-	const pirma_menesio_diena = new Date(calendar_date.getFullYear(), calendar_date.getMonth(), 1)
-	const paskutine_menesio_diena = new Date(calendar_date.getYear(), calendar_date.getMonth()+1, 0).getDate()
-	const savaites_diena = pirma_menesio_diena.getDay()
+  const dienos = e("dienos");
+  var tuscios_dienos = 0;
+  const pirma_menesio_diena = new Date(
+    calendar_date.getFullYear(),
+    calendar_date.getMonth(),
+    1
+  );
+  const paskutine_menesio_diena = new Date(
+    calendar_date.getYear(),
+    calendar_date.getMonth() + 1,
+    0
+  ).getDate();
+  const savaites_diena = pirma_menesio_diena.getDay();
 
-	if(savaites_diena == 0) { tuscios_dienos = 6 }
-	else { tuscios_dienos = savaites_diena - 1 }
+  if (savaites_diena == 0) {
+    tuscios_dienos = 6;
+  } else {
+    tuscios_dienos = savaites_diena - 1;
+  }
 
-	ih(dienos, '')
+  ih(dienos, "");
 
-	if(tuscios_dienos) { for(let i = 0; i < tuscios_dienos; i++) { add(dienos, ec({e: 'div', a: {class: 'diena'}, t:''})) } }
+  if (tuscios_dienos) {
+    for (let i = 0; i < tuscios_dienos; i++) {
+      add(dienos, ec({ e: "div", a: { class: "diena" }, t: "" }));
+    }
+  }
 
-	for(let d = 1; d < paskutine_menesio_diena+1; d++) {
-		let key = metai + tdn(menuo) + tdn(d)
-		if(dabar_menuo == menuo && d < dabar_diena) { add(dienos, ec({e: 'div', a: {class: 'diena pilka', key: key }, t: d})) }
-		else if(rezervacija.zaidimas.nuo && rezervacija.zaidimas.nuo > parseInt( metai + tdn(menuo) + tdn(d)) || rezervacija.zaidimas.iki < parseInt( metai + tdn(menuo) + tdn(d))) { add(dienos, ec({e: 'div', a: {class: 'diena pilka', key: key, onclick: "notify('Pasirinkto žaidimo šią dieną žaisti negalima.')" }, t: d})) }
-		else if(dabar_menuo == menuo && d.toString().padStart(2, "0") === dabar_diena) { add(dienos, ec({e: 'div', a: {class: 'diena geltona', key: key, onclick: "notify('Dėl galimybės žaisti šiandien teiraukitės telefonu.')" }, t: d})) }
-		else { add(dienos, ec({e: 'div', a: {class: 'diena', onclick: 'rinktisData(this)', diena: key }, t: d})) }
-	}
+  for (let d = 1; d < paskutine_menesio_diena + 1; d++) {
+    let key = metai + tdn(menuo) + tdn(d);
+    if (dabar_menuo == menuo && d < dabar_diena) {
+      add(
+        dienos,
+        ec({ e: "div", a: { class: "diena pilka", key: key }, t: d })
+      );
+    } else if (
+      (rezervacija.zaidimas.nuo &&
+        rezervacija.zaidimas.nuo > parseInt(metai + tdn(menuo) + tdn(d))) ||
+      rezervacija.zaidimas.iki < parseInt(metai + tdn(menuo) + tdn(d))
+    ) {
+      add(
+        dienos,
+        ec({
+          e: "div",
+          a: {
+            class: "diena pilka",
+            key: key,
+            onclick: "notify('Pasirinkto žaidimo šią dieną žaisti negalima.')",
+          },
+          t: d,
+        })
+      );
+    } else if (
+      dabar_menuo == menuo &&
+      d.toString().padStart(2, "0") === dabar_diena
+    ) {
+      add(
+        dienos,
+        ec({
+          e: "div",
+          a: {
+            class: "diena geltona",
+            key: key,
+            onclick:
+              "notify('Dėl galimybės žaisti šiandien teiraukitės telefonu.')",
+          },
+          t: d,
+        })
+      );
+    } else {
+      add(
+        dienos,
+        ec({
+          e: "div",
+          a: { class: "diena", onclick: "rinktisData(this)", diena: key },
+          t: d,
+        })
+      );
+    }
+  }
 
-	if(dabar_menuo == menuo && dabar_metai == metai) { ca(e('menesis-atgal'), 'pilka') }
-	else { cr(e('menesis-atgal'), 'pilka') }
+  if (dabar_menuo == menuo && dabar_metai == metai) {
+    ca(e("menesis-atgal"), "pilka");
+  } else {
+    cr(e("menesis-atgal"), "pilka");
+  }
 }
 
 function praeitasMenuo() {
-	if(menuo == 1) { menuo = 12; metai--} 
-	else if(dabar_menuo == menuo && dabar_metai == metai) { }
-	else { menuo-- }
-	rodytiKalendoriu()
+  if (menuo == 1) {
+    menuo = 12;
+    metai--;
+  } else if (dabar_menuo == menuo && dabar_metai == metai) {
+  } else {
+    menuo--;
+  }
+  rodytiKalendoriu();
 }
 
 function kitasMenuo() {
-	if(menuo == 12) { menuo = 1; metai++}
-	else { menuo++ }
-	rodytiKalendoriu()
+  if (menuo == 12) {
+    menuo = 1;
+    metai++;
+  } else {
+    menuo++;
+  }
+  rodytiKalendoriu();
 }
 
 function rinktisData(opcija) {
-	rezervacija.diena = ag(opcija, 'diena')
-	rinktis(opcija)
-	pridetiLaikus()
+  rezervacija.diena = ag(opcija, "diena");
+  rinktis(opcija);
+  pridetiLaikus();
 }
 
 function pridetiLaikus() {
-	const laikai = e('laikai')
+  const laikai = e("laikai");
 
-	ih(laikai, '')
+  ih(laikai, "");
 
+  let slotai = [];
+  let uzimti_dienos_laikai = [];
 
-	let slotai = []
-	let uzimti_dienos_laikai = []
+  if (rezervacija.zaidimas.zaidimas === "tablemonteball") {
+    db.ref(`uzimti_laikai/tablemonteball/${rezervacija.diena}`)
+      .get()
+      .then((snap) => {
+        if (snap.exists()) {
+          for (valandike of snap.val()) {
+            uzimti_dienos_laikai.push(valandike);
+          }
+        }
 
-	if(rezervacija.zaidimas.zaidimas === 'tablemonteball') {
-		
-		db.ref(`uzimti_laikai/tablemonteball/${rezervacija.diena}`).get().then(snap => {
-			if(snap.exists()) {
-				for(valandike of snap.val()) { uzimti_dienos_laikai.push(valandike)}
-			}
+        for (
+          let nuo = nustatymai.laikai.pirma["tablemonteball"][menuo - 1];
+          nuo <= nustatymai.laikai.paskutine["tablemonteball"][menuo - 1];
+          nuo++
+        ) {
+          if (!uzimti_dienos_laikai.includes(tdn(nuo) + "00")) {
+            slotai.push(nuo);
+          }
+        }
 
-			for(let nuo = nustatymai.laikai.pirma['tablemonteball'][menuo-1]; nuo <= nustatymai.laikai.paskutine['tablemonteball'][menuo-1]; nuo++) {
-				if(!uzimti_dienos_laikai.includes(tdn(nuo)+'00')) { slotai.push(nuo)}
+        for (slot of slotai) {
+          add(
+            laikai,
+            ec({
+              e: "div",
+              a: {
+                laikas: tdn(slot) + "00",
+                class: "opcija",
+                onclick: "rinktisLaika(this);",
+              },
+              t: `${slot}:00`,
+            })
+          );
+        }
+      });
+  } else {
+    db.ref(`uzimti_laikai/${rezervacija.lokacija}/${rezervacija.diena}`)
+      .get()
+      .then((snap) => {
+        if (snap.exists()) {
+          for (valandike in snap.val()) {
+            uzimti_dienos_laikai.push(valandike);
+          }
+        }
 
-			}
+        for (
+          let nuo = nustatymai.laikai.pirma[rezervacija.lokacija][menuo - 1];
+          nuo <= nustatymai.laikai.paskutine[rezervacija.lokacija][menuo - 1];
+          nuo++
+        ) {
+          if (!uzimti_dienos_laikai.includes(tdn(nuo) + "00")) {
+            slotai.push(nuo);
+          }
+        }
+        for (slot of slotai) {
+          add(
+            laikai,
+            ec({
+              e: "div",
+              a: {
+                laikas: tdn(slot) + "00",
+                class: "opcija",
+                onclick: "rinktisLaika(this);",
+              },
+              t: `${slot}:00`,
+            })
+          );
+        }
+      });
+  }
 
-			for(slot of slotai) {
-				add(laikai, ec({e: 'div', a: { laikas: tdn(slot)+'00', class: 'opcija', onclick: 'rinktisLaika(this);'}, t: `${slot}:00`}))
-			}
-		})
-
-	}
-	else {
-
-		db.ref(`uzimti_laikai/${rezervacija.lokacija}/${rezervacija.diena}`).get().then(snap => {
-			if(snap.exists()) {
-				for(valandike in snap.val()) { uzimti_dienos_laikai.push(valandike) }
-			}
-
-			for(let nuo = nustatymai.laikai.pirma[rezervacija.lokacija][menuo-1]; nuo <= nustatymai.laikai.paskutine[rezervacija.lokacija][menuo-1]; nuo++) {
-				if(!uzimti_dienos_laikai.includes(tdn(nuo)+'00')) { slotai.push(nuo)}
-			}
-			for(slot of slotai) {
-				add(laikai, ec({e: 'div', a: { laikas: tdn(slot)+'00', class: 'opcija', onclick: 'rinktisLaika(this);'}, t: `${slot}:00`}))
-			}
-		})
-	}
-
-
-
-
-
-	// db.ref(`laisvi_laikai/${rezervacija.lokacija}/20${metai}/${tdn(menuo)}/${rezervacija.diena.slice(4,6)}`).orderByKey().on('value', snap=> {
-	// 	ih(laikai, '')
-	// 	let laisvi_laikai = snap.val()
-	// 	if(laisvi_laikai) {
-	// 		let surusiuoti_laikai = Object.keys(laisvi_laikai).sort((a,b) => a-b)
-	// 		for(laikas of surusiuoti_laikai) {
-	// 			add(laikai, ec({e: 'div', a: { laikas: laikas, class: 'opcija', onclick: 'rinktisLaika(this);'}, t: `${laikas.slice(0,2)}:${laikas.slice(2,4)}`}))
-	// 		}
-	// 	}
-	// 	else { notify('Dėl galimybės žaisti šią dieną teiraukitės telefonu.')}
-	// })
+  db.ref(
+    `laisvi_laikai/${rezervacija.lokacija}/20${metai}/${tdn(
+      menuo
+    )}/${rezervacija.diena.slice(4, 6)}`
+  )
+    .orderByKey()
+    .on("value", (snap) => {
+      ih(laikai, "");
+      let laisvi_laikai = snap.val();
+      if (laisvi_laikai) {
+        let surusiuoti_laikai = Object.keys(laisvi_laikai).sort(
+          (a, b) => a - b
+        );
+        for (laikas of surusiuoti_laikai) {
+          add(
+            laikai,
+            ec({
+              e: "div",
+              a: {
+                laikas: laikas,
+                class: "opcija",
+                onclick: "rinktisLaika(this);",
+              },
+              t: `${laikas.slice(0, 2)}:${laikas.slice(2, 4)}`,
+            })
+          );
+        }
+      } else {
+        notify("Dėl galimybės žaisti šią dieną teiraukitės telefonu.");
+      }
+    });
 }
 
 function rinktisLaika(opcija) {
-	rezervacija.laikas = ag(opcija, 'laikas')
-	rinktis(opcija)
-	// sp('l', rezervacija.valanda)
+  rezervacija.laikas = ag(opcija, "laikas");
+  rinktis(opcija);
+  sp("l", rezervacija.valanda);
 }
 
 function pridetiZmogu(element) {
-	var number_element = e('zaideju_skaicius')
-	var number = number_element.innerText
+  var number_element = e("zaideju_skaicius");
+  var number = number_element.innerText;
 
-	if(rezervacija.zaidimas.zaidimas === 'tablemonteball') { if(number > 3 && e('info-zaidejai')) { e('info-zaidejai').remove() } }
-	else { if(number > 7 && e('info-zaidejai')) { e('info-zaidejai').remove() } }
+  if (rezervacija.zaidimas.zaidimas === "tablemonteball") {
+    if (number > 3 && e("info-zaidejai")) {
+      e("info-zaidejai").remove();
+    }
+  } else {
+    if (number > 7 && e("info-zaidejai")) {
+      e("info-zaidejai").remove();
+    }
+  }
 
-	if(number == 1) { qe(p(number_element), '.minus').classList.remove('disabled') }
+  if (number == 1) {
+    qe(p(number_element), ".minus").classList.remove("disabled");
+  }
 
-	if(rezervacija.zaidimas.zaidimas === 'tablemonteball' && number == 18) {
-		add(p(p(element)), ec({e: 'div', a: {id: 'info-zaidejai', class: 'zinute'}, t: 'Maksimalus table monteball žaidėjų skaičius: 18'}))
-	}
-	else { number ++ }
+  if (rezervacija.zaidimas.zaidimas === "tablemonteball" && number == 18) {
+    add(
+      p(p(element)),
+      ec({
+        e: "div",
+        a: { id: "info-zaidejai", class: "zinute" },
+        t: "Maksimalus table monteball žaidėjų skaičius: 18",
+      })
+    );
+  } else {
+    number++;
+  }
 
-	number_element.innerText = number
-	rezervacija.zaidejai = number
-	atnaujintiKaina()
+  number_element.innerText = number;
+  rezervacija.zaidejai = number;
+  atnaujintiKaina();
 }
 
 function nuimtiZmogu(element) {
-	var number_element = e('zaideju_skaicius')
-	var number = number_element.innerText
+  var number_element = e("zaideju_skaicius");
+  var number = number_element.innerText;
 
-	if(number == 2) { element.classList.add('disabled') }
+  if (number == 2) {
+    element.classList.add("disabled");
+  }
 
-	if(rezervacija.zaidimas.zaidimas === 'monteball' && number <= 9 && !e('info-zaidejai')) {
-		add(p(p(element)), ec({e: 'div', a: {id: 'info-zaidejai', class: 'zinute'}, t: 'Minimali kaina skaičiuojama nuo 9 žaidėjų'}))
-	}
-	else if(rezervacija.zaidimas.zaidimas === 'tablemonteball') {
-		if(e('info-zaidejai')) { 
-			if(number <= 5) { t(e('info-zaidejai'), 'Minimali kaina skaičiuojama nuo 5 žaidėjų') }
-			else { e('info-zaidejai').remove() }
-		}
-		else if(number <= 5) { add(p(p(element)), ec({e: 'div', a: {id: 'info-zaidejai', class: 'zinute'}, t: 'Minimali kaina skaičiuojama nuo 5 žaidėjų'}) )}
-	} 
+  if (
+    rezervacija.zaidimas.zaidimas === "monteball" &&
+    number <= 9 &&
+    !e("info-zaidejai")
+  ) {
+    add(
+      p(p(element)),
+      ec({
+        e: "div",
+        a: { id: "info-zaidejai", class: "zinute" },
+        t: "Minimali kaina skaičiuojama nuo 9 žaidėjų",
+      })
+    );
+  } else if (rezervacija.zaidimas.zaidimas === "tablemonteball") {
+    if (e("info-zaidejai")) {
+      if (number <= 5) {
+        t(e("info-zaidejai"), "Minimali kaina skaičiuojama nuo 5 žaidėjų");
+      } else {
+        e("info-zaidejai").remove();
+      }
+    } else if (number <= 5) {
+      add(
+        p(p(element)),
+        ec({
+          e: "div",
+          a: { id: "info-zaidejai", class: "zinute" },
+          t: "Minimali kaina skaičiuojama nuo 5 žaidėjų",
+        })
+      );
+    }
+  }
 
-	if(number > 1) { number-- }
+  if (number > 1) {
+    number--;
+  }
 
-	number_element.innerText = number
-	rezervacija.zaidejai = number
-	atnaujintiKaina()
-}		
+  number_element.innerText = number;
+  rezervacija.zaidejai = number;
+  atnaujintiKaina();
+}
 
 function atnaujintiKaina() {
-	var daugiklis = 0
+  var daugiklis = 0;
 
-	if(rezervacija.zaidimas.zaidimas === 'tablemonteball') { daugiklis = rezervacija.zaidejai < 5 ? 5 : rezervacija.zaidejai }
-	else { daugiklis = rezervacija.zaidejai < 9 ? 9 : rezervacija.zaidejai }
+  if (rezervacija.zaidimas.zaidimas === "tablemonteball") {
+    daugiklis = rezervacija.zaidejai < 5 ? 5 : rezervacija.zaidejai;
+  } else {
+    daugiklis = rezervacija.zaidejai < 9 ? 9 : rezervacija.zaidejai;
+  }
 
-	rezervacija.mokejimas.suma = rezervacija.zaidimas.kaina * daugiklis
+  rezervacija.mokejimas.suma = rezervacija.zaidimas.kaina * daugiklis;
 
-	const mokestis = Math.round(rezervacija.mokejimas.suma * 0.1)
+  const mokestis = Math.round(rezervacija.mokejimas.suma * 0.1);
 
-	if(rezervacija.mokejimas.procentas == 10) {
-		rezervacija.mokejimas.liko_moketi = rezervacija.mokejimas.suma - mokestis
-		rezervacija.mokejimas.moketi = mokestis
-	}
-	else {
-		rezervacija.mokejimas.procentas = 100
-		rezervacija.mokejimas.moketi = rezervacija.mokejimas.suma
-	}
+  if (rezervacija.mokejimas.procentas == 10) {
+    rezervacija.mokejimas.liko_moketi = rezervacija.mokejimas.suma - mokestis;
+    rezervacija.mokejimas.moketi = mokestis;
+  } else {
+    rezervacija.mokejimas.procentas = 100;
+    rezervacija.mokejimas.moketi = rezervacija.mokejimas.suma;
+  }
 
-	qa('.kaina').forEach(kainele => { t(kainele, rezervacija.mokejimas.suma ) })
-	t(e('mokestis'), mokestis)
-	t(e('mokama-suma'), rezervacija.mokejimas.moketi)
+  qa(".kaina").forEach((kainele) => {
+    t(kainele, rezervacija.mokejimas.suma);
+  });
+  t(e("mokestis"), mokestis);
+  t(e("mokama-suma"), rezervacija.mokejimas.moketi);
 }
 
 function pasirinktiMokejima(opcija) {
-	rezervacija.mokejimas = ag(opcija, 'key')
-	rinktis(opcija)
-	atnaujintiKaina()
+  rezervacija.mokejimas = ag(opcija, "key");
+  rinktis(opcija);
+  atnaujintiKaina();
 }
 
 function sutikimas(elementas) {
-	elementas.classList.toggle('checked')
-	if(!cc(e('zinute-nesutikus'), 'hidden')) { ca(e('zinute-nesutikus'), 'hidden') }
+  elementas.classList.toggle("checked");
+  if (!cc(e("zinute-nesutikus"), "hidden")) {
+    ca(e("zinute-nesutikus"), "hidden");
+  }
 }
 
 function mokejimas(button) {
-	const klaidos = tikrintiKlaidas()
+  const klaidos = tikrintiKlaidas();
 
-	if(!klaidos) {
-		let mygtukas_paspaustas = Date.now()
-		button.disabled = true
-		button.classList.add('paspaustas')
-		ca(button, 'f')
-		ih(button, '<div class="" id="kamuolys"><img src="svg/soccer-ball.svg"/></div>')
+  if (!klaidos) {
+    let mygtukas_paspaustas = Date.now();
+    button.disabled = true;
+    button.classList.add("paspaustas");
+    ca(button, "f");
+    ih(
+      button,
+      '<div class="" id="kamuolys"><img src="svg/soccer-ball.svg"/></div>'
+    );
 
-		fs.collection('paymentIntents').add({
-				rezervacija: rezervacija,
-				to_pay: rezervacija.mokejimas.moketi,
-				type: rezervacija.mokejimas.budas,
-		}).then(resp => {
-			console.log('issaugota mokejimo informacija')  
-				db.ref('paymentRedirects/' + resp.id).on('value', doc => {
-				console.log('laukiama mokejimo nuorodos')
-				if(doc.val() && doc.val().url) {
-					console.log('gautas atsakymas, nukreipiama.')
-					if(Date.now() - mygtukas_paspaustas < 5000 ){
-						setTimeout(() => {
-							window.location.href = doc.val().url
-						}, mygtukas_paspaustas + 5000 - Date.now())
-					}
-					else window.location.href = doc.val().url
-				}
-			})
-		})
-	}
+    fs.collection("paymentIntents")
+      .add({
+        rezervacija: rezervacija,
+        to_pay: rezervacija.mokejimas.moketi,
+        type: rezervacija.mokejimas.budas,
+      })
+      .then((resp) => {
+        console.log("issaugota mokejimo informacija");
+        db.ref("paymentRedirects/" + resp.id).on("value", (doc) => {
+          console.log("laukiama mokejimo nuorodos");
+          if (doc.val() && doc.val().url) {
+            console.log("gautas atsakymas, nukreipiama.");
+            if (Date.now() - mygtukas_paspaustas < 5000) {
+              setTimeout(() => {
+                window.location.href = doc.val().url;
+              }, mygtukas_paspaustas + 5000 - Date.now());
+            } else window.location.href = doc.val().url;
+          }
+        });
+      });
+  }
 }
 
 function tikrintiKlaidas() {
-	rezervacija.kontaktas.vardas = e('vardas').value
-	rezervacija.kontaktas.telefonas = e('telefonas').value
-	rezervacija.kontaktas.el_pastas = e('el_pastas').value
+  rezervacija.kontaktas.vardas = e("vardas").value;
+  rezervacija.kontaktas.telefonas = e("telefonas").value;
+  rezervacija.kontaktas.el_pastas = e("el_pastas").value;
 
-	var klaidos = {telefonas: false, el_pastas: false, taisykles: false}
+  var klaidos = { telefonas: false, el_pastas: false, taisykles: false };
 
-	const regex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+  const regex =
+    /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
 
-	if(!regex.test(rezervacija.kontaktas.telefonas)) {
-		cr(e('blogas-telefonas'), 'hidden')
-		klaidos.telefonas = true
-	} 
+  if (!regex.test(rezervacija.kontaktas.telefonas)) {
+    cr(e("blogas-telefonas"), "hidden");
+    klaidos.telefonas = true;
+  }
 
-	if(!rezervacija.kontaktas.el_pastas.toLowerCase().match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )) {
-		cr(e('blogas-elpastas'), 'hidden')
-		klaidos.el_pastas = true
-    } 
+  if (
+    !rezervacija.kontaktas.el_pastas
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+  ) {
+    cr(e("blogas-elpastas"), "hidden");
+    klaidos.el_pastas = true;
+  }
 
-	if(!cc(e('taisykles'), 'checked')) {
-		cr(e('zinute-nesutikus'), 'hidden')
-		klaidos.taisykles = true
-	}
+  if (!cc(e("taisykles"), "checked")) {
+    cr(e("zinute-nesutikus"), "hidden");
+    klaidos.taisykles = true;
+  }
 
-	return Object.values(klaidos).some(bool => bool == true)
+  return Object.values(klaidos).some((bool) => bool == true);
 }
